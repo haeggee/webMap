@@ -1,10 +1,12 @@
 /* The Authenticated View (after logging in) */
 
-import React from "react";
 // Importing react-router-dom to use the React Router
 // import { Route, Switch, BrowserRouter } from "react-router-dom";
 
+import React from "react";
 import L from 'leaflet'
+import { Box, Button, Grid } from '@material-ui/core'
+import "../index.css"
 
 class MainView extends React.Component {
 
@@ -19,7 +21,38 @@ class MainView extends React.Component {
     }
     render() {
         return (
-            <div id="map"></div>
+            <div>
+                <div id="map"></div>
+                <div className="box">
+                    <Grid container
+                        justify="center" spacing={3}
+                        alignItems="center">
+                        <Grid item xs={2}>
+                            <Button variant="outlined"
+                                color="secondary"
+                                className="button"
+                                display="flex"
+                            >
+                                Reset
+                        </Button>
+                        </Grid>
+                        <Grid item xs={2}>
+                            <Button variant="contained"
+                                className="button"
+                            >
+                                Union
+                        </Button>
+                        </Grid>
+
+                        <Grid item xs={2}>
+                            <Button variant="contained"
+                                className="button">
+                                Intersect
+                        </Button>
+                        </Grid>
+                    </Grid>
+                </div>
+            </div>
         );
     }
 }

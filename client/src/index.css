@@ -16,3 +16,13 @@ code {
   height: 600px;
   width: 800px;
 }
+
+.button {
+  margin: 100px;
+  display: inline-block
+}
+
+.box {
+  padding: 40px;
+  align-items: center;
+}
