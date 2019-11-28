@@ -1,20 +1,15 @@
 import React from 'react';
 import './App.css';
 import Mainview from './components/Mainview'
+import Login from './components/Login'
 
 function App() {
+  const [screen, setScreen] = React.useState("Auth")
+
   return (
     <div className="App">
-      <header className="App-header">
-        <Mainview />
-        <p
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Let's get started!
-        </p>
+      <header className="App-main">
+        {screen === "noAuth" ?  <Login /> : <Mainview />}
       </header>
     </div>
   );
