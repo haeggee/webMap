@@ -1,4 +1,3 @@
-'use strict'
 import { getState, setState } from "statezero"
 
 export const getCollection = () => {

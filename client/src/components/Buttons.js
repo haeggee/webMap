@@ -1,5 +1,6 @@
 import React from "react"
 import { Box, Button, Grid } from '@material-ui/core'
+import { unionClick, intersectClick, resetClick } from "../actions/helpers"
 export default function Buttons() {
     return (
         <Grid container
@@ -10,6 +11,7 @@ export default function Buttons() {
                     color="secondary"
                     className="button"
                     display="flex"
+                    onClick={resetClick}
                 >
                     Reset
                         </Button>
@@ -17,6 +19,7 @@ export default function Buttons() {
             <Grid item xs={2}>
                 <Button variant="contained"
                     className="button"
+                    onClick={unionClick}
                 >
                     Union
                         </Button>
@@ -24,7 +27,8 @@ export default function Buttons() {
 
             <Grid item xs={2}>
                 <Button variant="contained"
-                    className="button">
+                    className="button"
+                    onClick={intersectClick}>
                     Intersect
                         </Button>
             </Grid>

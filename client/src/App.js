@@ -9,6 +9,7 @@ function App() {
   const [auth, setAuth] = React.useState(getState("auth"));
   // subscribe to state changes
   subscribe(() => setAuth(getState("auth")), "auth");
+  
   return (
     <div className="App" >
       <header className="App-main">
