@@ -7,7 +7,7 @@ import React from "react";
 import L from 'leaflet'
 import Buttons from './Buttons'
 import "../index.css"
-import {getCollection} from '../actions/serverAPI'
+import { getCollection } from '../actions/serverAPI'
 
 class MainView extends React.Component {
 

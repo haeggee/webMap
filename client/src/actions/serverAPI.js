@@ -1,9 +1,19 @@
 'use strict'
+import { getState, setState } from "statezero"
 
-const fs = require('fs')
-
-const getCollection = () => {
+export const getCollection = () => {
     return collection;
+}
+
+export const login = () => {
+    const credentials = getState("loginForm");
+    if (credentials.username === "alex"
+        && credentials.password === "@spacemaker") {
+            console.log('test')
+        setState("auth", "Auth");
+    } else {
+        setState("message", "Invalid credentials.")
+    }
 }
 const collection = {
     "type": "FeatureCollection",
@@ -103,6 +113,3 @@ const collection = {
         }
     ]
 }
-
-
-module.exports = { getCollection }

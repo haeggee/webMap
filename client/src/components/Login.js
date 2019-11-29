@@ -1,8 +1,9 @@
 import React from "react";
 // Importing actions/required methods
-// TBD
-
-import { Paper, Button, TextField, Box } from "@material-ui/core";
+import { getState, subscribe } from "statezero"
+import { updateLoginForm } from "../actions/helpers"
+import { login } from "../actions/serverAPI"
+import { Paper, Button, TextField, Box, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(theme => ({
@@ -14,7 +15,7 @@ const useStyles = makeStyles(theme => ({
         alignItems: 'center',
         width: '100%'
     },
-    textfield: {
+    fields: {
         width: '100%',
         margin: theme.spacing(2)
     },
@@ -22,6 +23,8 @@ const useStyles = makeStyles(theme => ({
 
 export default function Login() {
     const classes = useStyles()
+    const [message, setMessage] = React.useState("")
+    subscribe(() => setMessage(getState("message")), "message");
     return (
         <Box>
             <Paper className={classes.paper}>
@@ -29,7 +32,8 @@ export default function Login() {
                     variant="outlined"
                     name="username"
                     label="Username"
-                    className={classes.textfield}
+                    className={classes.fields}
+                    onChange={e => updateLoginForm(e.target)}
                 />
 
                 <TextField
@@ -37,12 +41,20 @@ export default function Login() {
                     name="password"
                     label="Password"
                     type="password"
-                    className={classes.textfield}
+                    className={classes.fields}
+                    onChange={e => updateLoginForm(e.target)}
                 />
 
-                <Button variant="contained">
+                <Button className={classes.fields}
+                        variant="contained"
+                        onClick={login}>
                     Log In
                 </Button>
+                <Box className={classes.fields}>
+                    <Typography color="secondary">
+                        {message}
+                    </Typography>
+                </Box>
             </Paper>
         </Box >
     );
