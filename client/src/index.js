@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { setEmptyState } from './actions/helpers'
+import { setEmptyState } from './actions/map'
 
+// initialize the states
 setEmptyState();
 
 ReactDOM.render(<App />, document.getElementById('root'));

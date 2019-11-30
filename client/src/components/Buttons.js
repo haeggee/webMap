@@ -1,6 +1,7 @@
 import React from "react"
-import { Box, Button, Grid } from '@material-ui/core'
-import { unionClick, intersectClick, resetClick } from "../actions/helpers"
+import { Button, Grid } from '@material-ui/core'
+import { unionClick, intersectClick, resetClick } from "../actions/map"
+
 export default function Buttons() {
     return (
         <Grid container

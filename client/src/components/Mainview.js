@@ -6,18 +6,13 @@
 import React from "react";
 import Buttons from './Buttons'
 import "../index.css"
-import { getCollection } from '../actions/serverAPI'
-import { layerClick, initialize } from '../actions/helpers'
-import { setState } from "statezero"
+import { initialize } from '../actions/map'
+
 
 class MainView extends React.Component {
 
     componentDidMount() {
-        initialize();
-        // geoLayer.on('click', (e) => {
-        //     console.log(e)
-        //     e.layer.setStyle({fillColor: 'red'})
-        // })
+        initialize(); // initialize the map
     }
     render() {
         return (

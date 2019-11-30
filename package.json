@@ -1,0 +1,29 @@
+{
+  "name": "webmap",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haeggee/webMap.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/haeggee/webMap/issues"
+  },
+  "homepage": "https://github.com/haeggee/webMap#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "geojson-validation": "^0.2.1",
+    "mongodb": "^3.3.5",
+    "mongoose": "^5.7.13",
+    "mongoose-geojson-schema": "^2.1.3"
+  }
+}

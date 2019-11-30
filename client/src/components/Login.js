@@ -1,7 +1,6 @@
 import React from "react";
 // Importing actions/required methods
-import { getState, subscribe } from "statezero"
-import { updateLoginForm } from "../actions/helpers"
+import { setState, getState, subscribe } from "statezero"
 import { login } from "../actions/serverAPI"
 import { Paper, Button, TextField, Box, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
@@ -20,6 +19,15 @@ const useStyles = makeStyles(theme => ({
         margin: theme.spacing(2)
     },
 }))
+
+/**
+ * Updates the state of the login form.
+ * @param {*} field
+ */
+const updateLoginForm = (field) => {
+    const { name, value } = field;
+    setState(`loginForm.${name}`, value);
+};
 
 export default function Login() {
     const classes = useStyles()
