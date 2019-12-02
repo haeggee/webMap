@@ -15,7 +15,6 @@ import L from 'leaflet'
 export const setEmptyState = () => {
     setState("auth", "noAuth");
     setState("message", "");
-    setState("geoLayer", null);
     setState("selectedPolygons", []);
     setState("collection", null)
 };
@@ -61,7 +60,7 @@ export const filterCollection = (features) => {
 
     const filter = (feature) => {
         const bools = features.map((feature1) => {
-            return turf.booleanEqual(feature1, feature);
+            return feature1._id === feature._id; // id of mongoDB is unique
         });
         return !bools.includes(true);
     }
@@ -72,6 +71,7 @@ export const filterCollection = (features) => {
  * @param {[Feature]} features 
  */
 export const addToCollection = (features) => {
+    // need to copy the array using splice to be able to add to it
     const currentColl = getState("collection").slice();
     setState("collection", currentColl.concat(features))
 }
@@ -85,8 +85,6 @@ export const addToCollection = (features) => {
  */
 export const layerClick = (feature, layer) => {
     const selectedPolygons = getState("selectedPolygons");
-
-    // -- assuming no duplicates in the polygons --
 
     // get the current selection, without this feature 
     const filteredPolygons = selectedPolygons.filter((element) => {

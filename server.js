@@ -36,7 +36,7 @@ app.use(
         resave: false,
         saveUninitialized: false,
         cookie: {
-            expires: 60000,
+            // expires: 60000,
             httpOnly: true
         }
     })
@@ -62,17 +62,6 @@ app.get("/users/login", (req, res) => {
     res.send();
 });
 
-// A route to logout a user
-app.get("/users/logout", (req, res) => {
-    // Remove the session
-    req.session.destroy(error => {
-        if (error) {
-            res.status(500).send(error);
-        } else {
-            res.send()
-        }
-    });
-});
 
 // possible extension: logout, create user, delete user etc.
 
